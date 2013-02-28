@@ -52,22 +52,11 @@ namespace EnjoyWebApplication.TexasHoldem
 
         private void SetValues(Card card, Label lblColor, Label lblNumber)
         {
-            string color = GetColor(card.ColorType);
+            string color = card.ColorType.GetColorWordName();
             lblNumber.Text = card.DisplayNumber;
             lblNumber.CssClass = color;
-            lblColor.Text = color;
+            lblColor.Text = card.ColorType.GetColorSymbolName();
             lblColor.CssClass = color;
-        }
-
-        private string GetColor(CardColorType cardColorType)
-        {
-            switch (cardColorType)
-            {
-                case CardColorType.Spade: return "S";
-                case CardColorType.Heart: return "H";
-                case CardColorType.Club: return "C";
-                default: return "D";
-            }
         }
 
         private void ClearValue()

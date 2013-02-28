@@ -148,6 +148,7 @@
     <Compile Include="TexasHoldem\Manage\Entity\Lobby.cs" />
     <Compile Include="TexasHoldem\Manage\Entity\Poker.cs" />
     <Compile Include="TexasHoldem\Manage\Entity\Room.cs" />
+    <Compile Include="TexasHoldem\Manage\Extensions.cs" />
     <Compile Include="TexasHoldem\Manage\SessionController.cs" />
     <Compile Include="TexasHoldem\PokerPlay.aspx.cs">
       <DependentUpon>PokerPlay.aspx</DependentUpon>
