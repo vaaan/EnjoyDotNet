@@ -5,7 +5,7 @@
 <head runat="server">
     <title>德州扑克登录</title>
 </head>
-<body style="font-size: 16px; font-weight: bold;">
+<body style="font-size: 30px; font-weight: bold;">
     <script type="text/javascript" language="javascript">
         function checkValue() {
             if (document.getElementById("tbNickName").value == "" || document.getElementById("tbRoomName").value == "") {
@@ -19,14 +19,14 @@
     <div>
         德州扑克登录<br />
         <br />
-        昵称：<asp:TextBox ID="tbNickName" runat="server" ClientIDMode="Static"></asp:TextBox>
-        &nbsp; 房间名：<asp:TextBox ID="tbRoomName" runat="server" ClientIDMode="Static"></asp:TextBox>
+        昵称：<asp:TextBox ID="tbNickName" runat="server" ClientIDMode="Static" Font-Size="30px"></asp:TextBox>
+        &nbsp; 房间名：<asp:TextBox ID="tbRoomName" runat="server" ClientIDMode="Static" Font-Size="30px"></asp:TextBox>
         &nbsp;
         <asp:Button ID="btnLogin" runat="server" Text="进 入" 
-            OnClientClick="javascript:return checkValue();" onclick="btnLogin_Click" />
+            OnClientClick="javascript:return checkValue();" onclick="btnLogin_Click" Font-Size="30px" />
         <br />
         <br />
-        房间密码（输入则以管理员身份登录）：<asp:TextBox ID="tbRoomPwd" runat="server" TextMode="Password"></asp:TextBox>
+        房间密码（输入则以管理员身份登录）：<asp:TextBox ID="tbRoomPwd" runat="server" TextMode="Password" Font-Size="30px"></asp:TextBox>
     </div>
     </form>
 </body>

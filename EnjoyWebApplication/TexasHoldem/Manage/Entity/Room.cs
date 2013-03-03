@@ -85,29 +85,20 @@ namespace EnjoyWebApplication.TexasHoldem.Manage.Entity
             if (pokerNameDic.Count == 0) return;
             allUsedCards.Clear();
             commonCardList.Clear();
+            var allCardList = new List<int>();
+            for (int i = 0; i < 51; i++)
+            {
+                allCardList.Add(i);
+            }
             // 一共需要人数*2 + 5张牌
             var sumCardNumber = pokerNameDic.Count * 2 + 5;
-            Random colorRandom = new Random();
-            Random numberRandom = new Random();
+            Random cardRdm = new Random();
             for (int i = 0; i < sumCardNumber; i++)
             {
-                var hasDuplicate = false;
-                int color = 0, number = 0;
-                do
-                {
-                    hasDuplicate = false;
-                    color = colorRandom.Next(4);
-                    number = numberRandom.Next(13) + 1;
-                    foreach (var card in allUsedCards)
-                    {
-                        if ((card.ColorType == (CardColorType)color) && card.Number == number)
-                        {
-                            hasDuplicate = true;
-                            break;
-                        }
-                    }
-                } while (hasDuplicate);
-                allUsedCards.Add(new Card { ColorType = (CardColorType)color, Number = number });
+                int index = cardRdm.Next(allCardList.Count);
+                var cardCode=allCardList[index];
+                allUsedCards.Add(new Card { ColorType = (CardColorType)(cardCode / 13), Number = cardCode % 13 + 1 });
+                allCardList.RemoveAt(index);
             }
             // 发牌给玩家
             for (int i = 0; i < pokerNameDic.Count; i++)

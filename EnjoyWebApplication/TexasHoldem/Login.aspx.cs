@@ -19,7 +19,8 @@ namespace EnjoyWebApplication.TexasHoldem
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var room = Lobby.Instance.GetRoom(tbRoomName.Text);
-            var poker = new Poker { NickName = tbNickName.Text };
+            var poker = room.GetPoker(tbNickName.Text);
+            if (poker == null) poker = new Poker { NickName = tbNickName.Text };
             if (!String.IsNullOrEmpty(tbRoomPwd.Text))
             {
                 if (!String.IsNullOrEmpty(room.Password) && room.Password != tbRoomPwd.Text)
