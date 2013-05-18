@@ -11,7 +11,8 @@
     <RootNamespace>Vaaan.SouFun.AutoFill.App</RootNamespace>
     <AssemblyName>Vaaan.SouFun.AutoFill.App</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.JScript" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,10 +74,10 @@
     <Compile Include="Utilities\ExcelDataFetcher.cs" />
     <Compile Include="ZyExpertAutoFill\ExpertInformation.cs" />
     <Compile Include="ZyExpertAutoFill\ZyExpertAutoFiller.cs" />
-    <Compile Include="ZyExpertListForm.cs">
+    <Compile Include="ZyExpertAutoFill\ZyExpertListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ZyExpertListForm.Designer.cs">
+    <Compile Include="ZyExpertAutoFill\ZyExpertListForm.Designer.cs">
       <DependentUpon>ZyExpertListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
@@ -89,7 +91,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ZyExpertAutoFill\ZyExpertListForm.resx">
+      <DependentUpon>ZyExpertListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,6 +106,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ZyExpertAutoFill\ImportFormat.xls" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
