@@ -160,7 +160,12 @@ namespace Vaaan.SouFun.AutoFill.App.ZyExpertAutoFill
                                 "http://kfs.agent.soufun.com/Admin/agentprojad/SetAgentAdSave.aspx?action=addMagentad&agentid={0}&timeStamp=0.{1}&enddate={2}&cCode={3}&newcode={4}&saleOrRent={5}",
                                 entity.Managerid, new Random().Next(0x7fffffff), entity.Contractdate, Microsoft.JScript.GlobalObject.escape(entity.Contractid), entity.BuildCode, (int)entity.RentType);
                             var requestResult = webClient.DownloadString(url);
-                            if (requestResult == "noEro") 
+                            if (requestResult.Contains("登录"))
+                            {
+                                error.Append("必须先登录客服系统");
+                                break;
+                            }
+                            else if (requestResult == "noEro") 
                             {
                                 successNumber++;
                                 continue;
